@@ -37,12 +37,17 @@ def run_model() -> None:
     # validation_window is the number of months to validation the model and select for trading
     rebalance_window = 63
     validation_window = 63
-    
+
+    run_specific_strategy(df=data,
+                          unique_trade_date=unique_trade_date,
+                          rebalance_window=rebalance_window,
+                          validation_window=validation_window,strategy='A2C')
+
     ## Ensemble Strategy
-    run_ensemble_strategy(df=data, 
-                          unique_trade_date= unique_trade_date,
-                          rebalance_window = rebalance_window,
-                          validation_window=validation_window)
+    #run_ensemble_strategy(df=data,
+    #                      unique_trade_date= unique_trade_date,
+    #                      rebalance_window = rebalance_window,
+    #                      validation_window=validation_window)
 
     #_logger.info(f"saving model version: {_version}")
 
